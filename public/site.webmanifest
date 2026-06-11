@@ -1,0 +1,16 @@
+{
+  "name": "Krishna Golwala Portfolio",
+  "short_name": "Krishna",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#060606",
+  "theme_color": "#060606",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

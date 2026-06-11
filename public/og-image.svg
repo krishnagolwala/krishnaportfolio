@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Krishna Golwala portfolio preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#060606" />
+      <stop offset="100%" stop-color="#111111" />
+    </linearGradient>
+    <radialGradient id="glow" cx="0.2" cy="0.2" r="0.9">
+      <stop offset="0%" stop-color="#ff6b00" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#ff6b00" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+  <circle cx="980" cy="180" r="140" fill="#ff6b00" opacity="0.12" />
+  <circle cx="250" cy="500" r="180" fill="#00a3ff" opacity="0.08" />
+  <text x="90" y="185" fill="#ffffff" font-size="72" font-family="Arial, Helvetica, sans-serif" font-weight="700">Krishna Golwala</text>
+  <text x="90" y="255" fill="#ffb37a" font-size="38" font-family="Arial, Helvetica, sans-serif" font-weight="600">Full Stack Developer in India</text>
+  <text x="90" y="320" fill="#c8c8c8" font-size="28" font-family="Arial, Helvetica, sans-serif">React, Next.js, JavaScript, PHP, MySQL, SEO</text>
+  <rect x="90" y="390" width="320" height="6" rx="3" fill="#ff6b00" />
+</svg>

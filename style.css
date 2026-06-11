@@ -21,10 +21,50 @@
   --transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10000;
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: #000;
+  font-family: var(--font-secondary);
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 3px;
 }
 
 body {
@@ -77,10 +117,12 @@ h3 {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, filter 0.3s ease;
 }
 
-p,
+p {
+  transition: color 0.3s ease;
+}
+
 a {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease, filter 0.3s ease;
-  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
 }
 
 .glass-card {
@@ -98,6 +140,30 @@ a {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  body {
+    cursor: auto;
+  }
+}
+
 /* Background Gradients */
 body::before {
   content: '';
@@ -111,6 +177,41 @@ body::before {
     radial-gradient(circle at 90% 80%, var(--accent-soft) 0%, transparent 40%);
   z-index: -1;
   pointer-events: none;
+}
+
+/* Noise texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+  animation: grain 8s steps(10) infinite;
+}
+
+/* Subtle grid pattern on hero */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 107, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 107, 0, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero {
+  position: relative;
 }
 
 /* Navbar Centering Fix */
@@ -164,6 +265,22 @@ body::before {
 
 .nav-links a:hover {
   color: var(--accent-color);
+}
+
+.nav-links a.nav-active {
+  color: var(--accent-color);
+  position: relative;
+}
+
+.nav-links a.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-color);
+  border-radius: 2px;
 }
 
 /* Hamburger Button — hidden on desktop */
@@ -242,6 +359,7 @@ section {
   padding: 120px 5%;
   max-width: 1400px;
   margin: 0 auto;
+  scroll-margin-top: 120px;
 }
 
 /* Typography Enhancements */
@@ -278,12 +396,70 @@ h1 {
   font-weight: 600;
   margin-bottom: 25px;
   border: 1px solid var(--accent-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
   display: inline-block;
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
 }
 
 .hero-buttons {
   display: flex;
   gap: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-color) 0%, #ff9a44 50%, var(--accent-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-metrics {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 35px;
+  font-family: var(--font-secondary);
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.metric-value {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.metric-divider {
+  width: 1px;
+  height: 32px;
+  background: var(--glass-border);
 }
 
 /* About Section */
@@ -383,11 +559,21 @@ h1 {
   border-radius: 32px 32px 0 0;
 }
 
-.project-image img {
+.project-image svg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-image svg rect:not(:first-child) {
+    opacity: 0.9;
+  }
+
+  .project-image:hover svg {
+    filter: brightness(1.1);
+    transition: filter 0.3s ease;
+  }
 }
 
 .project-badge {
@@ -412,8 +598,22 @@ h1 {
 
 .project-desc {
   color: var(--text-secondary);
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: block;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 25px;
+}
+
+.project-tech .toolkit-tag {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  background: rgba(255, 107, 0, 0.08);
+  border: 1px solid rgba(255, 107, 0, 0.15);
 }
 
 .project-btn {
@@ -464,6 +664,46 @@ h1 {
   font-size: 1.1rem;
 }
 
+.contact-glow {
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(255, 107, 0, 0.08), transparent 60%);
+  pointer-events: none;
+}
+
+.contact-social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 35px;
+  padding-top: 30px;
+  border-top: 1px solid var(--glass-border);
+}
+
+.contact-social-link {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.contact-social-link:hover {
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  background: var(--accent-soft);
+  transform: translateY(-3px);
+}
+
 /* Glass Cards */
 .glass-card {
   background: var(--glass-bg);
@@ -475,19 +715,57 @@ h1 {
   overflow: hidden;
 }
 
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 107, 0, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
 .glass-card:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: var(--accent-color);
   transform: translateY(-5px);
 }
 
-/* Footer Fix */
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+/* Footer */
 footer {
   text-align: center;
   padding: 60px 0;
   color: var(--text-secondary);
   border-top: 1px solid var(--glass-border);
   margin-top: 100px;
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.footer-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 4px 6px;
+}
+
+.footer-nav a:hover {
+  color: var(--accent-color);
+}
+
+.footer-divider {
+  opacity: 0.3;
 }
 
 /* Custom Scrollbar */
