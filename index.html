@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -64,7 +64,7 @@
       "address": { "@type": "PostalAddress", "addressCountry": "IN" },
       "sameAs": [
         "https://github.com/krishnagolwala",
-        "https://linkedin.com/in/krishnagolwala"
+        "https://www.linkedin.com/in/krishna-golwala-47857826a"
       ],
       "knowsAbout": [
         "Full stack development", "React", "JavaScript", "PHP", "MySQL",
@@ -103,15 +103,51 @@
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
 
+  <!-- Loading Screen -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-logo" id="loader-logo">Krishna<span>.</span></div>
+
+      <div class="loader-term">
+        <div class="loader-term-bar">
+          <span class="loader-term-dot" style="background:#ff5f57;"></span>
+          <span class="loader-term-dot" style="background:#febc2e;"></span>
+          <span class="loader-term-dot" style="background:#28c840;"></span>
+          <span class="loader-term-title">krishna@dev: ~</span>
+        </div>
+        <div class="loader-term-body">
+          <div class="loader-term-line"><span class="loader-prompt">$</span><span class="loader-cmd">npm run dev</span></div>
+          <div class="loader-term-line"><span class="loader-step" id="loader-step-1">compiling portfolio&hellip;</span></div>
+          <div class="loader-term-line"><span class="loader-step" id="loader-step-2">loading components&hellip;</span></div>
+          <div class="loader-term-line"><span class="loader-step" id="loader-step-3">connecting projects&hellip;</span></div>
+        </div>
+      </div>
+
+      <div class="loader-bottom">
+        <div class="loader-bar"><div class="loader-bar-fill" id="loader-fill"></div></div>
+        <div class="loader-count" id="loader-count">0%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Orbs -->
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <!-- Custom Cursor -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
 
   <!-- Persistent Centered Navbar -->
   <div class="nav-container">
     <header class="navbar" aria-label="Primary navigation">
       <div class="logo" style="font-weight: 800; font-size: 1.6rem; letter-spacing: -1.5px;">Krishna<span
-          style="color: var(--accent-color);">.</span></div>
+          class="serif-accent" style="color: var(--accent-color);">.</span></div>
 
       <!-- Hamburger Button -->
       <button class="hamburger" aria-label="Toggle menu">
@@ -138,98 +174,454 @@
   <main id="main-content">
     <!-- Hero Section -->
     <section id="home" class="hero" aria-labelledby="hero-heading">
-      <div class="status-badge">
-        <span class="status-dot"></span> Available for work</div>
-      <h1 id="hero-heading" class="motion-slide-up"><span class="gradient-text">Krishna Golwala</span> <br> Full Stack Developer in India</h1>
-      <p class="hero-subtitle motion-slide-up">Hi, I'm Krishna Golwala. I build fast, accessible, SEO-friendly
-        websites and web apps with React, JavaScript, PHP, MySQL, and modern frontend engineering.</p>
-      <div class="hero-metrics motion-slide-up">
-        <div class="metric-item">
-          <span class="metric-value">1+</span>
-          <span class="metric-label">Years</span>
+      <div class="ghost-text" aria-hidden="true">KG</div>
+      <div class="hero-content">
+        <div class="status-badge">
+          <span class="status-dot"></span> Available for Projects</div>
+        <h1 id="hero-heading" class="motion-slide-up"><span class="gradient-text split-text">Krishna Golwala</span> <br> <span class="type-line"><span id="type-text">Creative Web Developer &amp; Designer</span><span class="type-caret" aria-hidden="true"></span></span></h1>
+        <p class="hero-subtitle motion-slide-up">I build responsive, high-performing websites with clean interfaces,
+          practical backend thinking, and a sharp focus on the people using them.</p>
+        <div class="hero-metrics motion-slide-up">
+          <div class="metric-item">
+            <span class="metric-value"><span data-count="3">3</span>+</span>
+            <span class="metric-label">Years</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value"><span data-count="5">5</span>+</span>
+            <span class="metric-label">Projects</span>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <span class="metric-value"><span data-count="3">3</span>+</span>
+            <span class="metric-label">Live Apps</span>
+          </div>
         </div>
-        <div class="metric-divider"></div>
-        <div class="metric-item">
-          <span class="metric-value">15+</span>
-          <span class="metric-label">Projects</span>
-        </div>
-        <div class="metric-divider"></div>
-        <div class="metric-item">
-          <span class="metric-value">MCA</span>
-          <span class="metric-label">Degree</span>
+        <div class="hero-buttons motion-slide-up">
+          <a href="#projects" class="btn btn-primary">View Work</a>
+          <a href="#about" class="btn btn-glass">About Me</a>
+          <a href="/KRISHNA-RESUME.pdf" class="btn btn-glass" target="_blank" rel="noopener noreferrer" download>
+            Download Resume
+          </a>
         </div>
       </div>
-      <div class="hero-buttons motion-slide-up">
-        <a href="#projects" class="btn btn-primary">View Projects</a>
-        <a href="#about" class="btn btn-glass">About Me</a>
-        <a href="/KRISHNA-RESUME.pdf" class="btn btn-glass" target="_blank" rel="noopener noreferrer" download>
-          Download Resume
-        </a>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator" aria-hidden="true">
+        <span class="scroll-indicator-label">Scroll</span>
+        <span class="scroll-indicator-mouse"><span class="scroll-indicator-wheel"></span></span>
       </div>
     </section>
+
+    <!-- Tech Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>React</span><span class="marquee-dot"></span>
+        <span>JavaScript</span><span class="marquee-dot"></span>
+        <span>PHP</span><span class="marquee-dot"></span>
+        <span>MySQL</span><span class="marquee-dot"></span>
+        <span>Node.js</span><span class="marquee-dot"></span>
+        <span>Next.js</span><span class="marquee-dot"></span>
+        <span>TypeScript</span><span class="marquee-dot"></span>
+        <span>Tailwind CSS</span><span class="marquee-dot"></span>
+        <span>Git/GitHub</span><span class="marquee-dot"></span>
+        <span>REST APIs</span><span class="marquee-dot"></span>
+        <span>React</span><span class="marquee-dot"></span>
+        <span>JavaScript</span><span class="marquee-dot"></span>
+        <span>PHP</span><span class="marquee-dot"></span>
+        <span>MySQL</span><span class="marquee-dot"></span>
+        <span>Node.js</span><span class="marquee-dot"></span>
+        <span>Next.js</span><span class="marquee-dot"></span>
+        <span>TypeScript</span><span class="marquee-dot"></span>
+        <span>Tailwind CSS</span><span class="marquee-dot"></span>
+        <span>Git/GitHub</span><span class="marquee-dot"></span>
+        <span>REST APIs</span><span class="marquee-dot"></span>
+      </div>
+    </div>
 
     <!-- About Section -->
     <section id="about" class="about-section" aria-labelledby="about-heading">
       <div class="motion-scroll">
-        <h2 id="about-heading" class="about-heading">About <span style="color: var(--accent-color);">Krishna Golwala</span> <br> <span style="font-size: 0.45em; letter-spacing: 0;">Full Stack Developer in India</span>
+        <h2 id="about-heading" class="about-heading">About <span class="serif-accent" style="color: var(--accent-color);">Krishna Golwala</span> <br> <span style="font-size: 0.45em; letter-spacing: 0;">Full Stack Developer in India</span>
         </h2>
         <p class="about-description">
-          Currently pursuing my MCA (2nd Semester) with a solid foundation in BCA. I specialize in full stack
-          development, React interfaces, and search-friendly web experiences that connect design, performance, and
-          functionality. As a <strong>full stack developer in India</strong>, I build complete web solutions from database to deployment.
+          <strong style="color: var(--accent-color); font-family: var(--font-mono); font-size: 0.95rem;">&ldquo;Consistency and curiosity are my biggest strengths as a developer.&rdquo;</strong>
+        </p>
+        <p class="about-description">
+          I'm Krishna Golwala &mdash; a web developer from Surat, India. I hold a BCA from SDJ International College
+          and am currently pursuing my MCA at Sarvajanik College of Engineering &amp; Technology (SCET), specializing in
+          web development, advanced database systems and software design patterns.
+        </p>
+        <p class="about-description">
+          Before going full-stack, I spent two years as an E-commerce Executive at Prerna Industries &mdash; managing
+          operations on Amazon, Flipkart and Meesho, optimizing product listings and planning campaigns. That experience
+          shaped how I build: real-world usability first.
+        </p>
+        <p class="about-description">
+          Today I build database-driven web applications with PHP &amp; MySQL &mdash; carts, checkouts, admin panels,
+          authentication and clean, maintainable code.
         </p>
         <div class="stats-grid">
-          <div class="glass-card stat-card">
-            <span class="stat-number">1+</span>
+          <div class="glass-card stat-card motion-scroll" data-speed="0.15">
+            <span class="stat-number"><span data-count="3">3</span>+</span>
             <span class="stat-label">Years Experience</span>
           </div>
-          <div class="glass-card stat-card">
-            <span class="stat-number">15+</span>
-            <span class="stat-label">Projects Delivered</span>
+          <div class="glass-card stat-card motion-scroll" data-speed="0.25">
+            <span class="stat-number"><span data-count="5">5</span>+</span>
+            <span class="stat-label">Projects Built</span>
           </div>
-          <div class="glass-card stat-card">
-            <span class="stat-number">MCA</span>
-            <span class="stat-label">Postgraduate Degree</span>
+          <div class="glass-card stat-card motion-scroll" data-speed="0.35">
+            <span class="stat-number"><span data-count="3">3</span>+</span>
+            <span class="stat-label">Live Apps</span>
           </div>
         </div>
       </div>
-      <div class="glass-card toolkit-card motion-scroll">
+      <div class="glass-card toolkit-card motion-scroll" data-speed="0.3">
         <div>
           <h3 style="margin-bottom: 25px; font-size: 1.5rem;">Technical Toolkit</h3>
-          <div class="toolkit-tags">
-            <span class="toolkit-tag">HTML/CSS</span>
-            <span class="toolkit-tag">JavaScript</span>
-            <span class="toolkit-tag">PHP &amp; MySQL</span>
-            <span class="toolkit-tag">React</span>
-            <span class="toolkit-tag">Node.js</span>
-            <span class="toolkit-tag">Git/GitHub</span>
+          <div class="stack-cards">
+            <div class="stack-cat">
+              <div class="stack-cat-head"><span class="stack-cat-index">01</span><span class="stack-cat-label">Frontend</span><span class="stack-cat-count">8</span></div>
+              <div class="toolkit-tags stack-tags">
+                <span class="toolkit-tag">React</span>
+                <span class="toolkit-tag">React Native</span>
+                <span class="toolkit-tag">JavaScript</span>
+                <span class="toolkit-tag">Tailwind CSS</span>
+                <span class="toolkit-tag">HTML / CSS</span>
+                <span class="toolkit-tag">Next.js</span>
+                <span class="toolkit-tag">Vite</span>
+                <span class="toolkit-tag">Recharts</span>
+              </div>
+            </div>
+            <div class="stack-cat">
+              <div class="stack-cat-head"><span class="stack-cat-index">02</span><span class="stack-cat-label">Backend &amp; Data</span><span class="stack-cat-count">10</span></div>
+              <div class="toolkit-tags stack-tags">
+                <span class="toolkit-tag">Node.js</span>
+                <span class="toolkit-tag">Express</span>
+                <span class="toolkit-tag">MongoDB</span>
+                <span class="toolkit-tag">Mongoose</span>
+                <span class="toolkit-tag">PHP</span>
+                <span class="toolkit-tag">MySQL</span>
+                <span class="toolkit-tag">JWT Auth</span>
+                <span class="toolkit-tag">FastAPI</span>
+                <span class="toolkit-tag">Python</span>
+                <span class="toolkit-tag">scikit-learn</span>
+              </div>
+            </div>
+            <div class="stack-cat">
+              <div class="stack-cat-head"><span class="stack-cat-index">03</span><span class="stack-cat-label">Tools &amp; Platforms</span><span class="stack-cat-count">6</span></div>
+              <div class="toolkit-tags stack-tags">
+                <span class="toolkit-tag">Git / GitHub</span>
+                <span class="toolkit-tag">REST APIs</span>
+                <span class="toolkit-tag">BLE / GPS</span>
+                <span class="toolkit-tag">PWA</span>
+                <span class="toolkit-tag">Multer</span>
+                <span class="toolkit-tag">C++ / OOP</span>
+              </div>
+            </div>
           </div>
         </div>
         <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 30px;">
-          <p style="font-size: 0.9rem; color: var(--text-secondary);">Currently building advanced web apps with modern
-            stacks while mastering MCA curriculum and sharpening SEO-focused product thinking.</p>
+          <p style="font-size: 0.9rem; color: var(--text-secondary);">Today I build database-driven web applications
+            with PHP &amp; MySQL &mdash; carts, checkouts, admin panels, authentication and clean, maintainable code.</p>
+        </div>
+      </div>
+
+      <div class="glass-card timeline-card motion-scroll" style="grid-column: 1 / -1;">
+        <h3 style="margin-bottom: 35px; font-size: 1.5rem;">My Journey</h3>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2022</span>
+            <div>
+              <h4>The Start</h4>
+              <p>Joined GitHub in December 2022 and wrote my first lines of HTML &amp; CSS.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2024</span>
+            <div>
+              <h4>E-Commerce &amp; Web</h4>
+              <p>Managed marketplaces on Amazon, Flipkart &amp; Meesho as an E-commerce Executive &mdash; while sharpening my web skills.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2025</span>
+            <div>
+              <h4>BCA Graduate</h4>
+              <p>Graduated from SDJ International College and went full-stack with PHP &amp; MySQL.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <span class="timeline-year">2026</span>
+            <div>
+              <h4>MCA Student</h4>
+              <p>Pursuing my Master of Computer Applications at SCET, Surat &mdash; shipping projects and learning daily.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="about-section" aria-labelledby="github-heading">
+      <div class="motion-scroll">
+        <h2 id="github-heading" class="about-heading">GitHub <br> <span class="serif-accent" style="color: var(--accent-color);">Profile</span></h2>
+        <p class="about-description" style="font-family: var(--font-mono); color: var(--accent-color); font-size: 0.95rem;">
+          "Consistency and curiosity are my biggest strengths as a developer."
+        </p>
+        <div class="stats-grid">
+          <div class="glass-card stat-card motion-scroll" data-speed="0.15">
+            <span class="stat-number"><span data-count="3">3</span></span>
+            <span class="stat-label">Public Repositories</span>
+          </div>
+          <div class="glass-card stat-card motion-scroll" data-speed="0.25">
+            <span class="stat-number">2022</span>
+            <span class="stat-label">On GitHub Since</span>
+          </div>
+          <div class="glass-card stat-card motion-scroll" data-speed="0.35">
+            <span class="stat-number"><a class="stat-handle" href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer">@krishnagolwala</a></span>
+            <span class="stat-label">Open Source Profile</span>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card toolkit-card motion-scroll" data-speed="0.3">
+        <div>
+          <h3 style="margin-bottom: 25px; font-size: 1.5rem;">Featured Repositories</h3>
+          <div class="github-repos">
+            <a class="github-repo" href="https://krishnagolwala.github.io/" target="_blank" rel="noopener noreferrer">
+              <span class="github-repo-name">krishnagolwala.github.io</span>
+              <span class="github-repo-lang" style="--lang-color: #f1e05a;">JavaScript &middot; GitHub Pages site</span>
+            </a>
+            <a class="github-repo" href="https://krishnagolwala.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <span class="github-repo-name">krishnaportfolio</span>
+              <span class="github-repo-lang" style="--lang-color: #3572A5;">Python &middot; This portfolio, deployed live</span>
+            </a>
+            <a class="github-repo" href="https://github.com/krishnagolwala/krishnagolwala" target="_blank" rel="noopener noreferrer">
+              <span class="github-repo-name">krishnagolwala</span>
+              <span class="github-repo-lang" style="--lang-color: var(--text-secondary);">Profile README</span>
+            </a>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 30px;">
+          <h3 style="margin-bottom: 20px; font-size: 1.3rem;">Live Apps <span class="live-count">4</span></h3>
+          <div class="github-repos">
+            <a class="github-repo live-app" href="https://krishnagolwala.github.io/" target="_blank" rel="noopener noreferrer">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="github-repo-name">krishnagolwala.github.io</span>
+              <span class="github-repo-lang">Portfolio &mdash; React, deployed on GitHub Pages</span>
+            </a>
+            <a class="github-repo live-app" href="https://krishnagolwala.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="github-repo-name">krishnagolwala.vercel.app</span>
+              <span class="github-repo-lang">This portfolio &mdash; deployed live on Vercel</span>
+            </a>
+            <a class="github-repo live-app" href="https://digi-bouque.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="github-repo-name">digi-bouque.vercel.app</span>
+              <span class="github-repo-lang">Digi Bouquet &mdash; live web app on Vercel</span>
+            </a>
+            <a class="github-repo live-app" href="https://attendance-backend-bkhq.onrender.com/" target="_blank" rel="noopener noreferrer">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span class="github-repo-name">attendance-backend-bkhq.onrender.com</span>
+              <span class="github-repo-lang">AttendanceIQ backend &mdash; live API on Render (backend only)</span>
+            </a>
+          </div>
+        </div>
+        <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 30px;">
+          <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-block;">View Full Profile on GitHub</a>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="projects-heading">Selected <span style="color: var(--accent-color);">Works</span></h2>
+      <h2 id="projects-heading" class="projects-heading">Selected <span class="serif-accent" style="color: var(--accent-color);">Works</span></h2>
       <div class="projects-grid">
+        <!-- Project 3 -->
+        <article class="glass-card motion-scroll project-card">
+          <div class="project-image">
+            <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="Digi Bouquet project preview" role="img">
+              <rect width="800" height="600" fill="#0f0f0f"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <rect x="130" y="110" width="180" height="12" rx="6" fill="#e8b45a" opacity="0.6"/>
+              <rect x="130" y="135" width="220" height="8" rx="4" fill="#555"/>
+              <circle cx="560" cy="200" r="70" fill="#e8b45a" fill-opacity="0.12"/>
+              <circle cx="560" cy="200" r="45" fill="none" stroke="#e8b45a" stroke-opacity="0.4" stroke-width="2"/>
+              <circle cx="560" cy="200" r="20" fill="#e8b45a" fill-opacity="0.35"/>
+              <rect x="130" y="160" width="90" height="28" rx="8" fill="#e8b45a" opacity="0.85"/>
+              <rect x="235" y="160" width="90" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+              <rect x="130" y="210" width="300" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="230" width="260" height="8" rx="4" fill="#333"/>
+              <rect x="130" y="250" width="280" height="8" rx="4" fill="#333"/>
+              <rect x="130" y="290" width="120" height="32" rx="8" fill="#e8b45a" opacity="0.8"/>
+              <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
+              <rect x="130" y="430" width="120" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="450" width="200" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="465" width="180" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="495" width="100" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+            </svg>
+            <div class="project-badge">WEB APP</div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">Digi Bouquet</h3>
+            <p class="project-desc">A modern, fully responsive web application with interactive
+              JavaScript features and custom styling.</p>
+            <div class="project-tech">
+              <span class="toolkit-tag">JavaScript</span>
+              <span class="toolkit-tag">CSS</span>
+              <span class="toolkit-tag">HTML</span>
+            </div>
+            <div class="project-links">
+              <a href="https://digi-bouque.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 5 -->
+        <article class="glass-card motion-scroll project-card">
+          <div class="project-image">
+            <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="AttendanceIQ project preview" role="img">
+              <rect width="800" height="600" fill="#0f0f0f"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <circle cx="400" cy="170" r="55" fill="none" stroke="#e8b45a" stroke-opacity="0.35" stroke-width="2"/>
+              <circle cx="400" cy="170" r="28" fill="none" stroke="#e8b45a" stroke-opacity="0.6" stroke-width="2"/>
+              <circle cx="400" cy="170" r="8" fill="#e8b45a" fill-opacity="0.8"/>
+              <path d="M130 260 h540" stroke="#2a2a2a" stroke-width="1"/>
+              <circle cx="160" cy="280" r="6" fill="#4ade80" opacity="0.8"/>
+              <rect x="180" y="272" width="180" height="8" rx="4" fill="#555"/>
+              <circle cx="160" cy="310" r="6" fill="#4ade80" opacity="0.8"/>
+              <rect x="180" y="302" width="220" height="8" rx="4" fill="#555"/>
+              <circle cx="160" cy="340" r="6" fill="#4ade80" opacity="0.8"/>
+              <rect x="180" y="332" width="160" height="8" rx="4" fill="#555"/>
+              <rect x="540" y="272" width="90" height="24" rx="8" fill="#e8b45a" opacity="0.8"/>
+              <rect x="540" y="302" width="90" height="24" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+              <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
+              <rect x="130" y="430" width="130" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="450" width="210" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="465" width="190" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="495" width="100" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+            </svg>
+            <div class="project-badge">BLE + GPS</div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">AttendanceIQ &mdash; BLE Attendance System</h3>
+            <p class="project-desc">Student attendance system with 6-step verification &mdash; JWT auth, live
+              BLE beacon sessions, RSSI proximity checks and GPS geofencing via Haversine distance. Backend is
+              live on Render; React Native app runs on physical devices.</p>
+            <div class="project-tech">
+              <span class="toolkit-tag">Node.js</span>
+              <span class="toolkit-tag">Express</span>
+              <span class="toolkit-tag">MongoDB</span>
+              <span class="toolkit-tag">React Native</span>
+            </div>
+            <div class="project-links">
+              <a href="https://attendance-backend-bkhq.onrender.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary project-btn">Live API</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 6 -->
+        <article class="glass-card motion-scroll project-card">
+          <div class="project-image">
+            <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="BillVault project preview" role="img">
+              <rect width="800" height="600" fill="#0f0f0f"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <rect x="300" y="110" width="200" height="220" rx="12" fill="#161616" stroke="#e8b45a" stroke-opacity="0.5" stroke-width="1.5"/>
+              <rect x="330" y="135" width="140" height="10" rx="5" fill="#e8b45a" opacity="0.7"/>
+              <rect x="330" y="160" width="100" height="6" rx="3" fill="#555"/>
+              <path d="M330 190 l35 22 25 -14 35 22 30 -18" stroke="#4ade80" stroke-opacity="0.8" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="330" y="225" width="60" height="8" rx="4" fill="#444"/>
+              <rect x="405" y="225" width="50" height="8" rx="4" fill="#333"/>
+              <rect x="330" y="248" width="80" height="8" rx="4" fill="#444"/>
+              <rect x="425" y="248" width="45" height="8" rx="4" fill="#333"/>
+              <rect x="330" y="280" width="70" height="24" rx="8" fill="#e8b45a" opacity="0.8"/>
+              <circle cx="330" cy="300" r="6" fill="#4ade80" opacity="0.7"/>
+              <rect x="348" y="296" width="90" height="8" rx="4" fill="#555"/>
+              <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
+              <rect x="130" y="430" width="140" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="450" width="220" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="465" width="190" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="495" width="100" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+            </svg>
+            <div class="project-badge">MERN</div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">BillVault &mdash; Bill Management App</h3>
+            <p class="project-desc">Full-stack MERN mobile-first bill management PWA &mdash; bill CRUD with file
+              attachments, JWT + PIN-lock auth, dashboard with charts, payment/EMI reminders, warranty tracker,
+              reports and an admin panel.</p>
+            <div class="project-tech">
+              <span class="toolkit-tag">React</span>
+              <span class="toolkit-tag">Express</span>
+              <span class="toolkit-tag">MongoDB</span>
+              <span class="toolkit-tag">Tailwind CSS</span>
+            </div>
+            <div class="project-links">
+              <a href="mailto:golwalakrishna211@gmail.com?subject=BillVault%20Demo" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
+        <!-- Project 7 -->
+        <article class="glass-card motion-scroll project-card">
+          <div class="project-image">
+            <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="ML Model Checker project preview" role="img">
+              <rect width="800" height="600" fill="#0f0f0f"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <circle cx="180" cy="170" r="8" fill="#e8b45a" fill-opacity="0.85"/>
+              <circle cx="290" cy="120" r="6" fill="#e8b45a" fill-opacity="0.5"/>
+              <circle cx="290" cy="220" r="6" fill="#e8b45a" fill-opacity="0.5"/>
+              <circle cx="400" cy="170" r="10" fill="#4ade80" fill-opacity="0.85"/>
+              <circle cx="510" cy="120" r="6" fill="#e8b45a" fill-opacity="0.5"/>
+              <circle cx="510" cy="220" r="6" fill="#e8b45a" fill-opacity="0.5"/>
+              <circle cx="620" cy="170" r="8" fill="#e8b45a" fill-opacity="0.85"/>
+              <path d="M188 170 h96 M296 124 h98 M296 216 h98 M410 170 h94 M516 124 h98 M516 216 h98" stroke="#e8b45a" stroke-opacity="0.35" stroke-width="1.5"/>
+              <path d="M188 170 h96 M296 124 h98 M296 216 h98" stroke="#4ade80" stroke-opacity="0.5" stroke-width="1.5" transform="translate(30,-12)"/>
+              <rect x="130" y="270" width="540" height="14" rx="7" fill="#222"/>
+              <rect x="130" y="270" width="380" height="14" rx="7" fill="#e8b45a" opacity="0.8"/>
+              <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
+              <rect x="130" y="430" width="150" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="450" width="200" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="465" width="180" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="495" width="100" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+            </svg>
+            <div class="project-badge">ML / AI</div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">ML Model Checker</h3>
+            <p class="project-desc">Web app to upload machine learning models (pickle/joblib) and run live
+              predictions &mdash; house price estimation and spam detection, powered by a flexible unpickler
+              that handles any scikit-learn model.</p>
+            <div class="project-tech">
+              <span class="toolkit-tag">FastAPI</span>
+              <span class="toolkit-tag">Python</span>
+              <span class="toolkit-tag">scikit-learn</span>
+              <span class="toolkit-tag">Next.js</span>
+            </div>
+            <div class="project-links">
+              <a href="mailto:golwalakrishna211@gmail.com?subject=ML%20Model%20Checker%20Demo" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
         <!-- Project 1 -->
         <article class="glass-card motion-scroll project-card">
           <div class="project-image">
             <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="Elite Jewelry Store project preview" role="img">
               <rect width="800" height="600" fill="#0f0f0f"/>
-              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#ff6b00" stroke-opacity="0.3"/>
-              <rect x="130" y="110" width="160" height="12" rx="6" fill="#ff6b00" opacity="0.6"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <rect x="130" y="110" width="160" height="12" rx="6" fill="#e8b45a" opacity="0.6"/>
               <rect x="130" y="135" width="220" height="8" rx="4" fill="#555"/>
               <rect x="130" y="155" width="180" height="8" rx="4" fill="#555"/>
-              <rect x="130" y="180" width="120" height="30" rx="8" fill="#ff6b00" opacity="0.8"/>
-              <circle cx="620" cy="220" r="60" fill="none" stroke="#ff6b00" stroke-opacity="0.2" stroke-width="2"/>
-              <circle cx="620" cy="220" r="40" fill="none" stroke="#ff6b00" stroke-opacity="0.4" stroke-width="2"/>
-              <circle cx="620" cy="220" r="20" fill="#ff6b00" fill-opacity="0.3"/>
-              <rect x="130" y="240" width="90" height="6" rx="3" fill="#ff6b00" opacity="0.3"/>
+              <rect x="130" y="180" width="120" height="30" rx="8" fill="#e8b45a" opacity="0.8"/>
+              <circle cx="620" cy="220" r="60" fill="none" stroke="#e8b45a" stroke-opacity="0.2" stroke-width="2"/>
+              <circle cx="620" cy="220" r="40" fill="none" stroke="#e8b45a" stroke-opacity="0.4" stroke-width="2"/>
+              <circle cx="620" cy="220" r="20" fill="#e8b45a" fill-opacity="0.3"/>
+              <rect x="130" y="240" width="90" height="6" rx="3" fill="#e8b45a" opacity="0.3"/>
               <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
               <rect x="130" y="430" width="120" height="8" rx="4" fill="#444"/>
               <rect x="130" y="450" width="200" height="6" rx="3" fill="#333"/>
@@ -240,14 +632,17 @@
           </div>
           <div class="project-info">
             <h3 class="project-title">Elite Jewelry Store</h3>
-            <p class="project-desc">A full-stack e-commerce solution with dynamic
-              inventory, administrative dashboards, and automated invoicing.</p>
+            <p class="project-desc">Complete e-commerce platform &mdash; shopping cart, checkout flow, invoice
+              generation, admin panel and order management.</p>
             <div class="project-tech">
               <span class="toolkit-tag">PHP</span>
               <span class="toolkit-tag">MySQL</span>
               <span class="toolkit-tag">JavaScript</span>
             </div>
-            <a href="#" class="btn btn-glass project-btn">Case Study</a>
+            <div class="project-links">
+              <a href="mailto:golwalakrishna211@gmail.com?subject=Elite%20Jewelry%20Store%20Demo" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
           </div>
         </article>
         <!-- Project 2 -->
@@ -255,18 +650,18 @@
           <div class="project-image">
             <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="Smart Canteen Management project preview" role="img">
               <rect width="800" height="600" fill="#0f0f0f"/>
-              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#ff6b00" stroke-opacity="0.3"/>
-              <rect x="130" y="110" width="140" height="12" rx="6" fill="#ff6b00" opacity="0.6"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <rect x="130" y="110" width="140" height="12" rx="6" fill="#e8b45a" opacity="0.6"/>
               <rect x="130" y="135" width="200" height="8" rx="4" fill="#555"/>
               <rect x="130" y="160" width="60" height="60" rx="10" fill="#222"/>
               <rect x="210" y="160" width="60" height="60" rx="10" fill="#222"/>
               <rect x="290" y="160" width="60" height="60" rx="10" fill="#222"/>
               <rect x="370" y="160" width="60" height="60" rx="10" fill="#222"/>
-              <circle cx="160" cy="190" r="6" fill="#ff6b00" opacity="0.6"/>
-              <circle cx="240" cy="190" r="6" fill="#ff6b00" opacity="0.3"/>
+              <circle cx="160" cy="190" r="6" fill="#e8b45a" opacity="0.6"/>
+              <circle cx="240" cy="190" r="6" fill="#e8b45a" opacity="0.3"/>
               <circle cx="320" cy="190" r="6" fill="#4ade80" opacity="0.6"/>
-              <circle cx="400" cy="190" r="6" fill="#ff6b00" opacity="0.3"/>
-              <rect x="130" y="240" width="80" height="6" rx="3" fill="#ff6b00" opacity="0.3"/>
+              <circle cx="400" cy="190" r="6" fill="#e8b45a" opacity="0.3"/>
+              <rect x="130" y="240" width="80" height="6" rx="3" fill="#e8b45a" opacity="0.3"/>
               <rect x="220" y="240" width="60" height="6" rx="3" fill="#333"/>
               <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
               <rect x="130" y="430" width="140" height="8" rx="4" fill="#444"/>
@@ -278,23 +673,64 @@
           </div>
           <div class="project-info">
             <h3 class="project-title">Smart Canteen Mgmt</h3>
-            <p class="project-desc">Systematic management tool for food services,
-              utilizing file systems for data persistence and role-based access control.</p>
+            <p class="project-desc">Console-based canteen management with multi-role access
+              (admin, manager, staff) and file-based storage.</p>
             <div class="project-tech">
               <span class="toolkit-tag">C++</span>
               <span class="toolkit-tag">OOP</span>
               <span class="toolkit-tag">File Systems</span>
             </div>
-            <a href="#" class="btn btn-glass project-btn">Case Study</a>
+            <div class="project-links">
+              <a href="mailto:golwalakrishna211@gmail.com?subject=Canteen%20Management%20Demo" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
           </div>
         </article>
-      </div>
-    </section>
+        <!-- Project 4 -->
+        <article class="glass-card motion-scroll project-card">
+          <div class="project-image">
+            <svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="project-svg" aria-label="SCET InfraDESK project preview" role="img">
+              <rect width="800" height="600" fill="#0f0f0f"/>
+              <rect x="100" y="80" width="600" height="280" rx="16" fill="#1a1a1a" stroke="#e8b45a" stroke-opacity="0.3"/>
+              <rect x="130" y="110" width="150" height="12" rx="6" fill="#e8b45a" opacity="0.6"/>
+              <rect x="130" y="135" width="90" height="6" rx="3" fill="#e8b45a" opacity="0.3"/>
+              <rect x="230" y="135" width="60" height="6" rx="3" fill="#333"/>
+              <rect x="300" y="135" width="50" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="165" width="540" height="1" fill="#2a2a2a"/>
+              <rect x="130" y="185" width="120" height="8" rx="4" fill="#555"/>
+              <rect x="130" y="205" width="200" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="220" width="170" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="250" width="80" height="24" rx="6" fill="#4ade80" opacity="0.7"/>
+              <rect x="225" y="250" width="80" height="24" rx="6" fill="none" stroke="#555" stroke-width="1"/>
+              <rect x="130" y="290" width="100" height="28" rx="8" fill="#e8b45a" opacity="0.8"/>
+              <rect x="100" y="400" width="600" height="160" rx="12" fill="#131313"/>
+              <rect x="130" y="430" width="160" height="8" rx="4" fill="#444"/>
+              <rect x="130" y="450" width="190" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="465" width="210" height="6" rx="3" fill="#333"/>
+              <rect x="130" y="495" width="100" height="28" rx="8" fill="none" stroke="#555" stroke-width="1"/>
+            </svg>
+            <div class="project-badge">MANAGEMENT</div>
+          </div>
+          <div class="project-info">
+            <h3 class="project-title">SCET InfraDESK</h3>
+            <p class="project-desc">Infrastructure management system &mdash; resource tracking,
+              request management, role-based access and reporting.</p>
+            <div class="project-tech">
+              <span class="toolkit-tag">PHP</span>
+              <span class="toolkit-tag">HTML</span>
+            </div>
+            <div class="project-links">
+              <a href="mailto:golwalakrishna211@gmail.com?subject=SCET%20InfraDESK%20Demo" class="btn btn-primary project-btn">Live Demo</a>
+              <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="btn btn-glass project-btn">GitHub</a>
+            </div>
+          </div>
+        </article>
+        </section>
 
     <!-- Experience Section -->
     <section id="experience" class="about-section" aria-labelledby="experience-heading">
       <div class="motion-scroll">
-        <h2 id="experience-heading" class="about-heading">Full Stack <br> <span style="color: var(--accent-color);">Experience &amp; Services</span></h2>
+        <h2 id="experience-heading" class="about-heading">Full Stack <br> <span class="serif-accent" style="color: var(--accent-color);">Experience &amp; Services</span></h2>
         <p class="about-description">
           As a <strong>full stack developer in India</strong>, I build portfolio websites, dashboard interfaces, and practical full stack tools with a focus on clean code,
           fast loading, mobile responsiveness, and strong Google visibility. Every project I deliver follows SEO best practices and Core Web Vitals standards.
@@ -302,19 +738,42 @@
       </div>
       <div class="glass-card toolkit-card motion-scroll">
         <div>
-          <h3 style="margin-bottom: 25px; font-size: 1.5rem;">What I deliver as a Full Stack Developer</h3>
-          <div class="toolkit-tags">
-            <span class="toolkit-tag">Next.js-ready SEO</span>
-            <span class="toolkit-tag">React UI systems</span>
-            <span class="toolkit-tag">Core Web Vitals</span>
-            <span class="toolkit-tag">Structured data</span>
-            <span class="toolkit-tag">Responsive design</span>
-            <span class="toolkit-tag">Performance tuning</span>
+          <h3 style="margin-bottom: 25px; font-size: 1.5rem;">What I can do for you</h3>
+          <div class="services-list">
+            <div class="service-item">
+              <span class="service-num">01</span>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg>
+              </div>
+              <div>
+                <h4>Web Development</h4>
+                <p>Responsive, fast, accessible websites &mdash; from landing pages to full-stack applications.</p>
+              </div>
+              <a class="service-link" href="#contact">Start a project &rarr;</a>
+            </div>
+            <div class="service-item">
+              <span class="service-num">02</span>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19 7-7 3 3-7 7-3-3z"/><path d="m18 13-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="m2 2 7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+              </div>
+              <div>
+                <h4>UI / UX Design</h4>
+                <p>Clean interfaces and thoughtful flows, designed around how real people actually use them.</p>
+              </div>
+              <a class="service-link" href="#contact">Start a project &rarr;</a>
+            </div>
+            <div class="service-item">
+              <span class="service-num">03</span>
+              <div class="service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg>
+              </div>
+              <div>
+                <h4>Backend &amp; Data</h4>
+                <p>PHP and MySQL under the hood &mdash; forms, auth, and data handling that just works.</p>
+              </div>
+              <a class="service-link" href="#contact">Start a project &rarr;</a>
+            </div>
           </div>
-        </div>
-        <div style="border-top: 1px solid var(--glass-border); padding-top: 30px; margin-top: 30px;">
-          <p style="font-size: 0.9rem; color: var(--text-secondary);">The goal is simple: build work that ranks, loads
-            quickly, and converts visitors into real opportunities.</p>
         </div>
       </div>
     </section>
@@ -322,7 +781,7 @@
     <!-- FAQ Section -->
     <section id="faq" class="about-section" aria-labelledby="faq-heading" itemscope itemtype="https://schema.org/FAQPage">
       <div class="motion-scroll" style="grid-column: 1 / -1;">
-        <h2 id="faq-heading" class="about-heading">Frequently Asked <br> <span style="color: var(--accent-color);">Questions</span></h2>
+        <h2 id="faq-heading" class="about-heading">Frequently Asked <br> <span class="serif-accent" style="color: var(--accent-color);">Questions</span></h2>
       </div>
 
       <div class="glass-card motion-scroll" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" style="grid-column: 1 / -1;">
@@ -389,12 +848,15 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section" aria-labelledby="contact-heading">
-      <div class="glass-card motion-scroll contact-card">
+      <div class="glass-card motion-scroll contact-card" data-speed="0.15">
         <div class="contact-glow"></div>
-        <h2 id="contact-heading" class="contact-heading">Ready to start <br> a project?</h2>
+        <div class="contact-availability">
+          <span class="status-dot"></span> Available for new projects &mdash; within 24&ndash;48 hours
+        </div>
+        <h2 id="contact-heading" class="contact-heading">Let's Bring <br> Your Vision to Life</h2>
         <p class="contact-desc">
-          I'm currently accepting new projects and freelance opportunities. If you need a full stack developer in India,
-          let's build something fast, polished, and search-friendly together.</p>
+          I'm currently accepting new projects and freelance opportunities. Whether it's a landing page or a
+          full-stack application, let's build something fast, polished, and practical together.</p>
         <div class="contact-buttons">
           <a href="mailto:golwalakrishna211@gmail.com" class="btn btn-primary contact-btn">Email Me Directly</a>
           <a href="https://github.com/krishnagolwala" target="_blank" class="btn btn-glass contact-btn" rel="noopener noreferrer">GitHub</a>
@@ -402,11 +864,30 @@
             View Resume
           </a>
         </div>
+
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            </div>
+            <div class="form-field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary contact-btn">Send Message</button>
+          <p class="form-note">Opens your email app with everything pre-filled. Or email me directly.</p>
+        </form>
         <div class="contact-social">
           <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="GitHub Profile">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
-          <a href="https://linkedin.com/in/krishnagolwala" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="LinkedIn Profile">
+          <a href="https://www.linkedin.com/in/krishna-golwala-47857826a" target="_blank" rel="noopener noreferrer" class="contact-social-link" aria-label="LinkedIn Profile">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
         </div>
@@ -415,21 +896,38 @@
   </main>
 
   <footer style="font-family: var(--font-secondary); padding: 40px 0;">
+    <a href="mailto:golwalakrishna211@gmail.com" class="cta-giant" aria-label="Let's talk â€” email Krishna Golwala">
+      <span class="cta-giant-text">Let's talk</span>
+      <span class="cta-giant-text cta-giant-fill" aria-hidden="true">Let's talk</span>
+    </a>
+    <div class="footer-social">
+      <a href="https://github.com/krishnagolwala" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/in/krishna-golwala-47857826a" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="#home">Home</a>
-      <span class="footer-divider">·</span>
+      <span class="footer-divider">Â·</span>
       <a href="#about">About</a>
-      <span class="footer-divider">·</span>
+      <span class="footer-divider">Â·</span>
       <a href="#projects">Projects</a>
-      <span class="footer-divider">·</span>
+      <span class="footer-divider">Â·</span>
       <a href="#experience">Experience</a>
-      <span class="footer-divider">·</span>
+      <span class="footer-divider">Â·</span>
       <a href="#faq">FAQ</a>
-      <span class="footer-divider">·</span>
+      <span class="footer-divider">Â·</span>
       <a href="#contact">Contact</a>
     </nav>
-    <p style="opacity: 0.6; margin-top: 16px;">© 2026 Krishna Golwala — Full Stack Developer in India. Built with Motion One &amp; Passion.</p>
+    <p style="opacity: 0.6; margin-top: 16px;">Â© 2026 Krishna Golwala â€” Full Stack Developer in India. Built with Motion One &amp; Passion.</p>
   </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+  </button>
 
   <script type="module" src="/main.js"></script>
 </body>
